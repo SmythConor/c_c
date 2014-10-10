@@ -1,7 +1,5 @@
 -- Lab 2 --
 
---tets
-
 -- Questions 1 and 3
 
 triangleArea :: Float -> Float -> Float -> Float
