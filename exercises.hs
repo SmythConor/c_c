@@ -1,3 +1,15 @@
+-- Lab 3 --
+
+-- Question 1
+
+isPalindrome :: [a] -> Bool
+isPalindrome xs = 
+
+-- Question 2
+
+shortest :: [a[] -> [a]]
+shortest (xs:)
+
 -- Lab 2 --
 
 -- Questions 1 and 3
