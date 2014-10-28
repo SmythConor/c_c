@@ -3,12 +3,17 @@
 -- Question 1
 
 isPalindrome :: [a] -> Bool
+isPalindrome xs = length xs == 1
 isPalindrome xs = 
-
+	if head xs == last xs 
+		then let tail xs 
+				 		 init xs 
+				 in isPalindrome xs 
+		else False
 -- Question 2
 
-shortest :: [a[] -> [a]]
-shortest (xs:)
+--shortest :: [a[] -> [a]]
+--shortest (xs:)
 
 -- Lab 2 --
 
