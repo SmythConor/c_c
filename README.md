@@ -4,7 +4,11 @@ Lab sheets found at http://www.computing.dcu.ie/~davids/courses/CA320/CA320.html
 <h2>Lab 3</h2>
 
 <h3>1. Palindromes</h3> <br />
-Write a function ```isPalindrome :: [a] -> Bool``` that takes a list and checks if 
+Write a function 
+```
+isPalindrome :: [a] -> Bool
+``` 
+that takes a list and checks if 
 it is a palindrome. <br /> For example:
 ```
 > isPalindrome [1,7,5,7,1]
@@ -13,7 +17,11 @@ True
 True
 ```
 <h3>2. Shortest list</h3> <br />
-Write a function ```shortest :: [[a]] -> [a]``` that takes a list of lists and returns 
+Write a function 
+```
+shortest :: [[a]] -> [a]
+``` 
+that takes a list of lists and returns 
 the shortest list in the list (and returns [] if the list of lists is empty). <br /> For example:
 ```
 > shortest [[1,2,3],[1,2],[1,2,3,4,5],[4,3,2,1]]
