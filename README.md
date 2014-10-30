@@ -110,7 +110,9 @@ the value of the expression: ```triangleArea 1 2 4?```
 Add to your function definition some checks to handle such invalid data and report an
 error if appropriate. You can use the built-in error function for this purpose; it is called 
 with a string argument which is the error message. <br /> For example:
-```error “Not a triangle!”```
+```
+error “Not a triangle!”
+```
 
 The isSum function from exercise 2 is also pretty close to what you need for checking 
 that three numbers can really be the sides of a triangle. Begin by modifying this
