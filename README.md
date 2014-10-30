@@ -35,7 +35,7 @@ coefficients. <br /> For example:
 Notice how the list index for each element corresponds to the exponent of the term.
 Define a type synonym Poly for this representation. Two polynomials can be summed 
 by adding the coefficients of corresponding terms. <br /> For example, the sum of ```2x3 + x2 + 1 ```
-and ```3x4 + 4x2 – 7 is 3x4 + 2x3 + 5x2 – 6```.
+and ```3x4 + 4x2 – 7 is 3x4 + 2x3 + 5x2 – 6```.<br />
 Define a Haskell function ```sumPoly :: Poly -> Poly -> Poly``` that sums two 
 polynomials that are represented as above. Take care with the case of polynomials with 
 different degrees. <br /> For example:
@@ -67,7 +67,7 @@ anxn + … + a2x
 ```
 <h2>Lab 2</h2>
 
-<h3>1. Area of a Triangle</h3> <br />
+<h3>1. Area of a Triangle</h3>
 The area of a triangle with sides a, b, c is given by the formula:
 ```
  _______________ 
@@ -89,7 +89,7 @@ The behaviour of triangleArea should be as follows:
 > triangleArea 1 1 (sqrt 2)
 0.5
 ```
-<h3>2. Sum Test</h3> <br />
+<h3>2. Sum Test</h3>
 Design a Haskell function isSum that takes three integer arguments and tests whether 
 one of them is the sum of the other two.The behaviour of isSum should be as follows:
 ```
@@ -104,7 +104,7 @@ False
 ```
 You should start by declaring the type of isSum in your script.
 
-<h3>3. Area of a Triangle (revisited)</h3> <br />
+<h3>3. Area of a Triangle (revisited)</h3>
 Have you considered what your triangleArea function from exercise 1 will do with 
 invalid data? For example, there is no triangle with sides 1, 2, 4. What does GHCi give as 
 the value of the expression: ```triangleArea 1 2 4?```
@@ -115,7 +115,6 @@ with a string argument which is the error message. <br /> For example:
 ```
 error “Not a triangle!”
 ```
-
 The isSum function from exercise 2 is also pretty close to what you need for checking 
 that three numbers can really be the sides of a triangle. Begin by modifying this
 function.
