@@ -6,10 +6,21 @@ isPalindrome :: Eq a => [a] -> Bool
 isPalindrome xs = xs == reverse xs
 
 shortest :: [[a]] -> [a]
-shortest [xs] = xs
-shortest (xs:x) 
-	| length xs < length (shortest x) = xs
-	| otherwise = shortest x
+shortest [x] = x
+shortest (x:xs) 
+	| length x < length (shortest xs) = x
+	| otherwise = shortest xs
+
+type Poly = [Float]
+
+sumPolys :: Poly -> Poly -> Poly
+sumPolys [] p = p
+sumPolys p [] = p
+sumPolys (x:xs) (y:ys) = (x+y):(sumPolys xs ys)
+
+evalPoly :: Float-> Poly -> Float
+evalPoly _ [z] = z
+evalPoly x (z:zs) = z + (x * (evalPoly x zs))
 
 -- Lab 2 --
 
