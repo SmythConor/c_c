@@ -1,3 +1,9 @@
+-- Lab 4 --
+
+-- Question 1
+
+
+
 -- Lab 3 --
 
 -- Question 1
@@ -5,11 +11,15 @@
 isPalindrome :: Eq a => [a] -> Bool
 isPalindrome xs = xs == reverse xs
 
+-- Question 2
+
 shortest :: [[a]] -> [a]
 shortest [x] = x
 shortest (x:xs) 
 	| length x < length (shortest xs) = x
 	| otherwise = shortest xs
+
+-- Question 3
 
 type Poly = [Float]
 
@@ -17,6 +27,8 @@ sumPolys :: Poly -> Poly -> Poly
 sumPolys [] p = p
 sumPolys p [] = p
 sumPolys (x:xs) (y:ys) = (x+y):(sumPolys xs ys)
+
+-- Question 4
 
 evalPoly :: Float-> Poly -> Float
 evalPoly _ [z] = z
