@@ -2,7 +2,75 @@
 
 -- Question 1
 
+myAppend :: [a] -> [a] -> [a]
+myAppend [] x = x
+myAppend (y:ys) x = y:(myAppend ys x)
 
+myHead :: [a] -> a
+myHead [] = error "List is empty"
+myHead (x:xs) = x
+
+myLast :: [a] -> a
+myLast [] = error "List is empty"
+myLast [x] = x
+myLast (x:xs) = myLast xs
+
+myTail :: [a] -> [a]
+myTail [] = error "List is empty"
+myTail (x:xs) = xs
+
+myInit :: [a] -> [a]
+myInit [] = error "List is empty"
+myInit [x] = []
+myInit (x:xs) =  x:(myInit xs)
+
+myLength :: [a] -> Int
+myLength [] = error "List is empty"
+myLength [x] = 1
+myLength (x:xs) = 1 + myLength xs
+
+myReverse :: [a] -> [a]
+myReverse [] = error "List is empty"
+myReverse [x] = [x]
+myReverse (x:xs) = (myReverse xs) ++ [x]
+
+myConcat :: [[a]] -> [a]
+myConcat [] = [] 
+myConcat (x:xs) = x ++ (myConcat xs)
+
+mySum :: Num a => [a] -> a
+mySum [] = 0
+mySum (x:xs) = x + (mySum xs)
+
+myProduct :: Num a => [a] -> a
+myProduct [x] = x
+myProduct (x:xs) = x * (myProduct xs)
+
+myMaximum :: Ord a => [a] -> a
+myMaximum [] = error "List is empty"
+myMaximum [x] = x
+myMaximum (x:xs) = if x > myMaximum xs
+									 then x
+									 else myMaximum xs
+
+myMinimum :: Ord a => [a] -> a
+myMinimum [] = error "List is empty"
+myMinimum [x] = x
+myMinimum (x:xs) = if x < (myMinimum xs)
+									 then x
+									 else myMinimum xs
+
+myElem :: Eq a => a -> [a] -> Bool
+myElem x [] = False
+myElem x (z:zs) = if x == z
+									then True
+									else myElem x zs
+
+myDelete :: Eq a => a -> [a] -> [a]
+myDelete x [] = []
+myDelete x (z:zs) = if x == z
+										then zs
+										else z:(myDelete x zs)
 
 -- Lab 3 --
 
@@ -45,7 +113,7 @@ triangleArea a b c
 	| a + c < b = error "Not a triangle!"
 	| otherwise =
 		let s = (a + b + c) / 2
-		in sqrt(s*(s-a)*(s-b)*(s-c))
+		in sqrt(s*(s - a)*(s - b)*(s - c))
 
 -- Question 2
 
