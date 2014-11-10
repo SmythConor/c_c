@@ -72,6 +72,17 @@ myDelete x (z:zs)
 	| x == z = zs
 	| otherwise = z:(myDelete x zs)
 
+-- Question 2
+
+myUnion :: Eq a => [a] -> [a] -> [a]
+myUnion x [] = x
+--myUnion x y = 
+
+removeDuplicates :: Eq a => [a] -> [a] -> [a]
+removeDuplicates (x:xs) y = if myElem x y
+                            then myDelete x y
+														else removeDuplicates xs y
+
 -- Lab 3 --
 
 -- Question 1
@@ -81,12 +92,6 @@ isPalindrome xs = xs == reverse xs
 
 -- Question 2
 
-shortest :: [[a]] -> [a]
-<<<<<<< HEAD
-shortest xs = if length (take 1 xs) < shortest (tail xs)
-							then xs
-							else tail xs
-=======
 shortest [x] = x
 shortest (x:xs) 
 	| length x < length (shortest xs) = x
@@ -106,7 +111,6 @@ sumPolys (x:xs) (y:ys) = (x+y):(sumPolys xs ys)
 evalPoly :: Float-> Poly -> Float
 evalPoly _ [z] = z
 evalPoly x (z:zs) = z + (x * (evalPoly x zs))
->>>>>>> 9134cb66b3e54ee04600b5a73b2af76b151d7450
 
 -- Lab 2 --
 
