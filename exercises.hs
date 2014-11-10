@@ -5,6 +5,12 @@
 isPalindrome :: Eq a => [a] -> Bool
 isPalindrome xs = xs == reverse xs
 
+shortest :: [[a]] -> [a]
+shortest [xs] = xs
+shortest (xs:x) 
+	| length xs < length (shortest x) = xs
+	| otherwise = shortest x
+
 -- Lab 2 --
 
 -- Questions 1 and 3
