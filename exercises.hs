@@ -49,28 +49,28 @@ myProduct (x:xs) = x * (myProduct xs)
 myMaximum :: Ord a => [a] -> a
 myMaximum [] = error "List is empty"
 myMaximum [x] = x
-myMaximum (x:xs) = if x > myMaximum xs
-									 then x
-									 else myMaximum xs
+myMaximum (x:xs)
+	| x > myMaximum xs = x
+	| otherwise = myMaximum xs
 
 myMinimum :: Ord a => [a] -> a
 myMinimum [] = error "List is empty"
 myMinimum [x] = x
-myMinimum (x:xs) = if x < (myMinimum xs)
-									 then x
-									 else myMinimum xs
+myMinimum (x:xs)
+	| x < (myMinimum xs) = x
+	| otherwise = myMinimum xs
 
 myElem :: Eq a => a -> [a] -> Bool
 myElem x [] = False
-myElem x (z:zs) = if x == z
-									then True
-									else myElem x zs
+myElem x (z:zs)
+	| x == z = True 
+	| otherwise = myElem x zs
 
 myDelete :: Eq a => a -> [a] -> [a]
 myDelete x [] = []
-myDelete x (z:zs) = if x == z
-										then zs
-										else z:(myDelete x zs)
+myDelete x (z:zs)
+	| x == z = zs
+	| otherwise = z:(myDelete x zs)
 
 -- Lab 3 --
 
