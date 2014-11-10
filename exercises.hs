@@ -1,3 +1,77 @@
+-- Lab 4 --
+
+-- Question 1
+
+myAppend :: [a] -> [a] -> [a]
+myAppend [] x = x
+myAppend (y:ys) x = y:(myAppend ys x)
+
+myHead :: [a] -> a
+myHead [] = error "List is empty"
+myHead (x:xs) = x
+
+myLast :: [a] -> a
+myLast [] = error "List is empty"
+myLast [x] = x
+myLast (x:xs) = myLast xs
+
+myTail :: [a] -> [a]
+myTail [] = error "List is empty"
+myTail (x:xs) = xs
+
+myInit :: [a] -> [a]
+myInit [] = error "List is empty"
+myInit [x] = []
+myInit (x:xs) =  x:(myInit xs)
+
+myLength :: [a] -> Int
+myLength [] = error "List is empty"
+myLength [x] = 1
+myLength (x:xs) = 1 + myLength xs
+
+myReverse :: [a] -> [a]
+myReverse [] = error "List is empty"
+myReverse [x] = [x]
+myReverse (x:xs) = (myReverse xs) ++ [x]
+
+myConcat :: [[a]] -> [a]
+myConcat [] = [] 
+myConcat (x:xs) = x ++ (myConcat xs)
+
+mySum :: Num a => [a] -> a
+mySum [] = 0
+mySum (x:xs) = x + (mySum xs)
+
+myProduct :: Num a => [a] -> a
+myProduct [x] = x
+myProduct (x:xs) = x * (myProduct xs)
+
+myMaximum :: Ord a => [a] -> a
+myMaximum [] = error "List is empty"
+myMaximum [x] = x
+myMaximum (x:xs)
+	| x > myMaximum xs = x
+	| otherwise = myMaximum xs
+
+myMinimum :: Ord a => [a] -> a
+myMinimum [] = error "List is empty"
+myMinimum [x] = x
+myMinimum (x:xs)
+	| x < (myMinimum xs) = x
+	| otherwise = myMinimum xs
+
+myElem :: Eq a => a -> [a] -> Bool
+myElem x [] = False
+myElem x (z:zs)
+	| x == z = True 
+	| otherwise = myElem x zs
+
+myDelete :: Eq a => a -> [a] -> [a]
+myDelete x [] = []
+myDelete x (z:zs)
+	| x == z = zs
+	| otherwise = z:(myDelete x zs)
+
 -- Lab 3 --
 
 -- Question 1
@@ -8,9 +82,31 @@ isPalindrome xs = xs == reverse xs
 -- Question 2
 
 shortest :: [[a]] -> [a]
+<<<<<<< HEAD
 shortest xs = if length (take 1 xs) < shortest (tail xs)
 							then xs
 							else tail xs
+=======
+shortest [x] = x
+shortest (x:xs) 
+	| length x < length (shortest xs) = x
+	| otherwise = shortest xs
+
+-- Question 3
+
+type Poly = [Float]
+
+sumPolys :: Poly -> Poly -> Poly
+sumPolys [] p = p
+sumPolys p [] = p
+sumPolys (x:xs) (y:ys) = (x+y):(sumPolys xs ys)
+
+-- Question 4
+
+evalPoly :: Float-> Poly -> Float
+evalPoly _ [z] = z
+evalPoly x (z:zs) = z + (x * (evalPoly x zs))
+>>>>>>> 9134cb66b3e54ee04600b5a73b2af76b151d7450
 
 -- Lab 2 --
 
@@ -23,7 +119,7 @@ triangleArea a b c
 	| a + c < b = error "Not a triangle!"
 	| otherwise =
 		let s = (a + b + c) / 2
-		in sqrt(s*(s-a)*(s-b)*(s-c))
+		in sqrt(s*(s - a)*(s - b)*(s - c))
 
 -- Question 2
 
