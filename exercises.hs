@@ -74,15 +74,6 @@ myDelete x (z:zs)
 
 -- Question 2
 
-myUnion :: Eq a => [a] -> [a] -> [a]
-myUnion x [] = x
---myUnion x y = 
-
-removeDuplicates :: Eq a => [a] -> [a] -> [a]
-removeDuplicates (x:xs) y = if myElem x y
-                            then myDelete x y
-														else removeDuplicates xs y
-
 -- Lab 3 --
 
 -- Question 1
