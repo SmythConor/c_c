@@ -72,7 +72,19 @@ myDelete x (z:zs)
 	| x == z = zs
 	| otherwise = z:(myDelete x zs)
 
--- Question 2
+-- Question 2 not my work
+
+myUnion :: (Eq a) => [a] -> [a] -> [a]
+myUnion xs [] = xs
+myUnion xs (y:ys)
+	| (myElem y xs) || (myElem y ys) = myUnion xs ys
+	| otherwise = myUnion (myAppend xs [y]) ys
+
+myIntersect :: (Eq a) => [a] -> [a] -> [a]
+myIntersect [] _ = []
+myIntersect (x:xs) ys
+	| myElem x ys = x:(myIntersect xs ys)
+	| otherwise = myIntersect xs ys
 
 -- Lab 3 --
 
