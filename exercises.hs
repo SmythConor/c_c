@@ -1,3 +1,29 @@
+-- Lab 5 -- 
+
+data BinTree t = Empty | Root t (BinTree t) (BinTree t)
+	deriving (Eq, Ord, Show)
+
+leaf x = Root x Empty Empty
+
+-- Question 1
+
+addNode :: Ord a => a -> BinTree a -> BinTree a
+addNode x Empty = leaf x
+addNode x (Root y l r)
+	| x < y = Root y (addNode x l) r
+	| otherwise = Root y l (addNode x r)
+
+-- Question 2
+
+--makeTree :: Ord a => [a] BinTree a
+--makeTree x Empty
+--makeTree (x:xs) Empty
+--	| addNode 
+
+myTree1 = Root 5 (Root 1 (Empty) (leaf 3)) (leaf 7)
+myTree2 = addNode 6 myTree1
+
+
 -- Lab 4 --
 
 -- Question 1
