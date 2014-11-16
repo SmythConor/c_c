@@ -19,7 +19,10 @@ diff (x:xs) y
 	| x `elem` y = diff xs y
 	| otherwise = x:diff xs y
 
--- Question 4
+-- Question 4 Needs to be learned. Comes up every year xD
+
+data BinTree t = Empty | Root t (BinTree t) (BinTree t)
+	deriving (Eq, Ord, Show)
 
 -- 2010 --
 
@@ -48,6 +51,8 @@ ans2 = whileSumLess [x | x <- [2,4..], mod x 3 /= 0] 0 1000
 
 -- Question 4 
 -- data type for binary trees
+
+data BinTree t = Empty | Root t (BinTree t) (BinTree t)
 
 -- Question 5
 -- function to add an element to a binary tree
