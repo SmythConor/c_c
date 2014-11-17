@@ -13,15 +13,50 @@ addNode x (Root y l r)
 	| x < y = Root y (addNode x l) r
 	| otherwise = Root y l (addNode x r)
 
--- Question 2
+-- Question 2 didn't get myself but nearly
 
---makeTree :: Ord a => [a] BinTree a
---makeTree x Empty
---makeTree (x:xs) Empty
---	| addNode 
+makeTree :: Ord a => [a] -> BinTree a
+makeTree [] = Empty
+makeTree [x] = leaf x
+makeTree (x:xs) = addNode x (makeTree xs)
+
+-- Question 3 again nearly got but not good enough
+
+inorder :: BinTree a -> [a]
+inorder Empty = []
+inorder (Root x l r) = inorder l ++ [x] ++ inorder r
+
+-- Question 4
+
+mpsort :: Ord a => [a] -> [a]
+mpsort [] = []
+mpsort x = inorder (makeTree x)
+
+-- Question 5
+
+reverseorder :: BinTree a -> [a]
+reverseorder Empty = []
+reverseorder (Root x l r) = reverseorder r ++ [x] ++ reverseorder l
+
+rmpsort :: Ord a => [a] -> [a]
+rmpsort [] = []
+rmpsort x = reverseorder (makeTree x)
+
+--hosort :: Ord a => (a -> a -> Bool) -> [a] -> [a]
+--hosort _ [] = []
+--hosort fn x = mpsort x
+----hosort (>) x = rmpsort x
+
+myList = [4,3,1,7,5]
 
 myTree1 = Root 5 (Root 1 (Empty) (leaf 3)) (leaf 7)
 myTree2 = addNode 6 myTree1
+myTree3 = makeTree myList
+myTree4 = addNode 6 myTree3 
+myTree5 = inorder myTree1 
+myTree6 = reverseorder myTree1
+--myTree7 = hosort < [4,3,1,7,5]
+--myTree8 = hosort > myList
 
 
 -- Lab 4 --
